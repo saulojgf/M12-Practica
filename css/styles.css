@@ -125,6 +125,42 @@
   color: #005A79;
 }
 
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fdf0b3;
+  background-color: #333;
+}
+.footer .ctner {
+  margin: 15px 0;
+}
+.footer .ctner-menu {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: start;
+}
+.footer .ctner-menu .menu {
+  list-style: none;
+}
+.footer .ctner-menu .menu-header {
+  margin: 10px 0;
+}
+.footer .ctner-menu .menu-link {
+  color: #fff;
+  text-decoration: none;
+}
+.footer .ctner-social {
+  text-align: center;
+}
+.footer .ctner-social .icon-link {
+  margin: 10px 10px;
+  color: #fff;
+}
+
 @media (hover: hover) {
   .main__icon:hove {
     fill: #53CBFA;
