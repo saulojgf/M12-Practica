@@ -9,6 +9,7 @@ $headerIconColor: #FFF;
 $bannerFontColor: #ffffff9f;
 $priceFontColor: #005A79;
 $boxShadowColor: rgba(0,0,0,0.30);
+$footerFontColor: #fdf0b3;
 // ------- Dark Mode Colors Variables --------
 $darkBodyBgColor: #5a5a5a;
 $darkheagerBgColor: #1A1A1A;
@@ -92,7 +93,7 @@ $widht23rem: ("id": 23.4375rem,
     @if $padding != null {padding: $padding;}
 }
 
-@mixin fxContainer($direction: row, $alignMain, $alingCross) {
+@mixin fxContainer($direction: row, $alignMain: center, $alingCross: center) {
     display: flex;
     flex-direction: $direction;
     justify-content: $alignMain;
@@ -281,6 +282,39 @@ $widht23rem: ("id": 23.4375rem,
                          $articlePriceFontRefSize,
                          $articlePriceFontMaxSize);
         color: $priceFontColor;
+    }
+}
+
+.footer {
+    @include fxContainer($direction: column);
+    color: $footerFontColor;
+    background-color: #333;
+
+    .ctner {
+        margin: 15px 0;
+    }
+    .ctner-menu {
+        width: 100%;
+        @include fxContainer($alignMain: space-around, $alingCross: start);
+        .menu {
+            list-style: none;
+            // outline: auto;
+            &-header{
+                margin: 10px 0;
+            }
+            &-link{
+                color: #fff;
+                text-decoration: none;
+            }
+        }
+    }
+
+    .ctner-social {
+        text-align: center;
+        .icon-link{
+            margin: 10px 10px;
+            color: #fff;
+        }
     }
 }
 
