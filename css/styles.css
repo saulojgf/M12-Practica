@@ -24,12 +24,17 @@
   justify-content: space-between;
   align-items: center;
 }
+.header > button {
+  background: none;
+  border: none;
+}
 .header__logo {
   width: auto;
   height: 100%;
   fill: #FFF;
 }
 .header__icon-container {
+  position: relative;
   width: auto;
   height: 60%;
   display: flex;
@@ -47,6 +52,20 @@
   fill: #53CBFA;
   stroke: #53CBFA;
 }
+.header__bubble {
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 20px;
+  min-width: 20px;
+  max-width: 40px;
+  bottom: -5px;
+  right: 0;
+  background-color: rgb(253, 212, 26);
+  border-radius: 15px;
+}
 
 .main__banner {
   background-image: url("../img/banner_sport.jpg");
@@ -55,7 +74,7 @@
   background-position: 1%;
 }
 
-.main__price, .main__atle-desc {
+.main__atle-desc {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -67,6 +86,34 @@
 .main {
   margin: 0;
   padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+.main__menu-ctner {
+  position: absolute;
+  top: -302px;
+  left: 2px;
+  width: 30%;
+  background-color: #fff;
+  outline: 2px solid #000;
+}
+.main .menu li {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  padding-inline: 10px;
+  cursor: pointer;
+}
+.main .menu--active {
+  top: 0;
+  transition: top 0.5s;
+}
+.main .menu__item:hover {
+  color: #fff;
+  background-color: #3b3b3b;
+}
+.main .menu__header {
+  justify-content: space-between;
 }
 .main__banner {
   text-align: center;
@@ -97,11 +144,16 @@
   grid-auto-rows: 350px;
 }
 .main__article {
-  cursor: pointer;
   text-align: center;
   outline: 1px solid #333;
   display: flex;
   flex-direction: column;
+}
+.main__price-ctner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 .main__img-container {
   width: 100%;
@@ -123,6 +175,59 @@
   font-weight: 500;
   font-size: clamp(0.5rem, 5vw, 1.3rem);
   color: #005A79;
+}
+.main .icon-addCart {
+  cursor: pointer;
+  font-size: clamp(0.5rem, 5vw, 1.3rem);
+}
+.main__cart {
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  top: 0px;
+  right: -50%;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid #000;
+}
+.main .cart--active {
+  right: 0;
+  transition: right 0.5s;
+}
+.main .cart__header {
+  padding-inline: 10px;
+  padding-block: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.main .cart__item-container {
+  height: 70px;
+  padding-inline: 5px;
+  padding-block: 5px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.main .cart__icon-trash {
+  cursor: pointer;
+}
+.main .item__checkbox {
+  width: 20px;
+}
+.main .item__image {
+  width: 100px;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.main .item__description {
+  width: 200px;
+}
+.main .item__quantity {
+  width: 50px;
+}
+.main .item__price {
+  width: 100px;
 }
 
 .footer {
