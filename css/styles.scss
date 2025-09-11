@@ -178,6 +178,11 @@ $widht23rem: ("id": 23.4375rem,
     background-color: $headerBgColor;
     @include fxContainer(row, space-between, center);
 
+    > button {
+        background: none;
+        border: none;
+    }
+
     &__logo {
         width: auto;
         height: 100%;
@@ -185,6 +190,7 @@ $widht23rem: ("id": 23.4375rem,
     }
 
     &__icon-container {
+        position: relative;
         @include cDimension($height: 60%);
         @include fxContainer(row, center, center);
     }
@@ -201,7 +207,21 @@ $widht23rem: ("id": 23.4375rem,
         fill: $headerIconActColor;
         stroke: $headerIconActColor;
     }
-
+    
+    &__bubble{
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        height: 20px;
+        min-width: 20px;
+        max-width: 40px;
+        bottom: -5px;
+        right: 0;
+        background-color: rgb(253, 212, 26);
+        border-radius: 15px;
+    }
 }
 
 // Using extend
@@ -221,6 +241,45 @@ $widht23rem: ("id": 23.4375rem,
 .main {
     margin: 0;
     padding: 0;
+    position: relative;
+    overflow: hidden;
+
+    &__menu-ctner {
+        position: absolute;
+        top: -302px;
+        // top: 0;
+        left: 2px;
+        width: 30%;
+        background-color: #fff;
+        outline: 2px solid #000;
+    }
+
+    .menu {
+        // width: 200px;
+        // outline: 2px solid red;
+        li {
+            display: flex;
+            align-items: center;
+            height: 50px;
+            padding-inline: 10px;
+            // outline: 2px solid blue;
+            cursor: pointer;
+        }
+
+        &--active {
+            top: 0;
+            transition: top 0.5s;
+        }
+
+        &__item:hover {
+            color: #fff;
+            background-color: #3b3b3b;
+        }
+
+        &__header {
+            justify-content: space-between;
+        }
+    }
 
     &__banner {
         text-align: center;
@@ -248,11 +307,19 @@ $widht23rem: ("id": 23.4375rem,
     }
 
     &__article {
-        cursor: pointer;
+        // cursor: pointer;
         text-align: center;
         outline: 1px solid #333;
         display: flex;
         flex-direction: column;
+    }
+
+    &__price-ctner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        // outline: auto;
     }
 
     &__img-container {
@@ -276,12 +343,84 @@ $widht23rem: ("id": 23.4375rem,
     }
 
     &__price {
-        @extend %price-desc;
         font-weight: 500;
         font-size: clamp($articlePriceFontMinSize,
                          $articlePriceFontRefSize,
                          $articlePriceFontMaxSize);
         color: $priceFontColor;
+    }
+
+    .icon-addCart {
+        cursor: pointer;
+        font-size: clamp($articlePriceFontMinSize,
+                         $articlePriceFontRefSize,
+                         $articlePriceFontMaxSize);
+    }
+
+    &__cart {
+        width: 50%;
+        height: 50%;
+        position: absolute;
+        top: 0px;
+        right: -50%;
+        background-color: rgb(255, 255, 255);
+        border: 1px solid #000;
+    }
+
+    .cart {
+        &--active {
+            right: 0;
+            transition: right 0.5s;
+        }
+
+        &__header {
+            padding-inline: 10px;
+            padding-block: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        // &__container {
+        //     outline:  1px solid blue;
+        // }
+
+        &__item-container {
+            height: 70px;
+            padding-inline: 5px;
+            padding-block: 5px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            // outline: 2px dashed green;
+        }
+
+        &__icon-trash{
+            cursor: pointer;
+        }
+    }
+
+    .item {
+        &__checkbox{
+            width: 20px;
+        }
+
+        &__image {
+            width: 100px;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        &__description{
+            width: 200px;
+        }
+
+        &__quantity {
+            width: 50px;
+        }
+
+        &__price{
+           width: 100px;
+        }
     }
 }
 
